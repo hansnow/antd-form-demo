@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 目标
 
-## Available Scripts
+我们的最终目标是写一个库，借助这个库，开发者可以方便的声明一个[AntDesign](https://ant.design/)风格的表单。同时开发者可以通过简单的代码，对该表单进行赋值、取值、声明联动逻辑和校验逻辑等操作。
 
-In the project directory, you can run:
+### 实现思路
 
-### `npm start`
+我们会按以下顺序开展工作
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. 按照具体的功能点选择合适的框架，如 Form Builder, JSON Schema Validator 等
+2. 根据所选框架提供的底层 API 实现我们的库需要的功能点
+3. 汇总功能点，形成我们自己的库的 API
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+前期的探索阶段，我们会在`src/cases`目录下展示各个功能点、对比各个框架性能。
 
-### `npm test`
+### 要实现哪些特性
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 为了解决性能问题，需要能够方便地拆分成子表单
 
-### `npm run build`
+  - 拆分成子表单之后，赋初始值、取值、联动要对开发者透明
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 方便地声明字段联动关系
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+  - 支持多级联动(A -> B -> C)
+  - 检测并提示形成闭环的联动(A -> B -> C -> A)
+  - 标识出被联动影响的字段(如使用`Form.Item`的`warning`样式)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 支持字段权限控制(不可见、只读、无限制)
 
-### `npm run eject`
+  - 不可见和只读字段，在表单取值时也需要能取到值
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- 方便地声明校验逻辑
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - 支持异步校验
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### TODO
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [ ] 表单性能如何度量(直观感受，非必要 render 次数)
+- [ ] 抽象联动逻辑，判断一组联动逻辑是否成环
+- [ ] 拆分子表单
+  - [ ] 子表单取值
+  - [ ] 子表单间的联动
+- [ ] 抽象校验逻辑
