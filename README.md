@@ -40,3 +40,10 @@
   - [ ] 子表单取值
   - [ ] 子表单间的联动
 - [ ] 抽象校验逻辑
+
+### 参考资料
+
+- [React Final Form](https://github.com/final-form/react-final-form)
+- [Formik](https://github.com/jaredpalmer/formik)
+- [Ajv](https://github.com/epoberezkin/ajv)
+- [React JSON Schema Form](https://github.com/mozilla-services/react-jsonschema-form)
