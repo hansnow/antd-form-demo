@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
+import 'antd/dist/antd.css'
 import './App.css'
 
 import Home from './Home'
@@ -12,14 +13,14 @@ function SidebarLink(props) {
 function App() {
   return (
     <Router>
-      <div class="container">
-        <div class="sidebar">
+      <div className="container">
+        <div className="sidebar">
           <SidebarLink exact to="/">
             Home
           </SidebarLink>
           <SidebarLink to="/performance">表单性能问题</SidebarLink>
         </div>
-        <div class="main">
+        <div className="main">
           <Route exact path="/" component={Home} />
           <Route path="/performance" component={Performance} />
         </div>
