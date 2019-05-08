@@ -7,7 +7,7 @@ body {
 .sidebar {
   width: 200px;
   background-color: #111;
-  height: 100vh;
+  min-height: 100vh;
 }
 .sidebar a {
   padding: 6px 8px 6px 16px;
