@@ -53,4 +53,4 @@
 - [Formik](https://github.com/jaredpalmer/formik)
 - [Ajv](https://github.com/epoberezkin/ajv)
 - [React JSON Schema Form](https://github.com/mozilla-services/react-jsonschema-form)
-- [UForm](https://alibaba.github.io/uform/#/MpI2Ij/dNFzFyTb)
+- [UForm](https://github.com/alibaba/uform)
